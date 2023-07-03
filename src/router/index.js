@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Inicio from '@/views/Inicio.vue'
-import Personajes from '@/views/Personajes.vue'
+//import Inicio from '@/views/Inicio.vue'
+//import Personajes from '@/views/Personajes.vue'
 import Personaje from '@/views/Personaje.vue'
 import Contacto from '@/views/Contacto.vue'
 import NotFound from '@/views/NotFound.vue'
@@ -12,11 +12,11 @@ const routes = [
   {
     path: '/',
     name: 'inicio',
-    component: Inicio
+    component: () => import(/* webpackChunkName: "inicio" */ '@/views/Inicio.vue')
   },
   {
     path: '/personajes',
-    component: Personajes,
+    component: () => import(/* webpackChunkName: "personajes" */ '@/views/Personajes.vue'),
     alias: ['/people','/characters']
   },
   {

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <navigation></navigation>
-    <router-view/>
+    <transition name="router-anim" mode="out-in">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -47,5 +49,59 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.router-anim-enter-active{
+
+  animation: coming .5s;
+
+  animation-delay: .5s;
+
+  opacity: 0;
+
+}
+
+.router-anim-leave-active{
+
+  animation: going .5s;
+
+}
+
+@keyframes coming{
+
+  from{
+
+    transform: translateX(-50px);
+
+    opacity:0
+
+  }
+
+  to{
+
+    transform: translateX(0px);
+
+    opacity:1
+
+  }
+
+}
+
+
+@keyframes going{
+
+  0%{
+
+    transform: translateX(0px);
+
+  }
+
+  100%{
+
+    transform: translateX(-50px);
+
+    opacity:0
+
+  }
 }
 </style>
