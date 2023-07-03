@@ -31,7 +31,12 @@
 import axios from 'axios'
 export default {
     name: 'personaje-name',
-    // props: {},
+    props: {
+        id:{
+            type:String,
+            required:true
+        }
+    },
     data: function(){
         return {
             personaje:{
@@ -42,11 +47,11 @@ export default {
             }
         }
     },
-    computed: {
+    /*computed: {
         id(){
             return this.$route.params.id
         }
-    },
+    },*/
     methods: {
         getPersonaje(){
             axios.get(`https://swapi.dev/api/people/${this.id}`)
